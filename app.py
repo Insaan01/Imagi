@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here-12345'  # Change this to a random secret key
+app.secret_key = 'hf-key'
 
 
 # Database initialization
@@ -48,7 +48,7 @@ def generate_image(prompt):
     client = InferenceClient(
 
         model = "black-forest-labs/FLUX.1-dev",
-        token = os.getenv("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")
+        token = os.getenv(app.secret_key)
     )
     try:
         # Generate image with proper error handling
@@ -146,7 +146,7 @@ def generate():
             # Display the image immediately
             return render_template('result.html',
                                    prompt=prompt,
-                                   image_data=img_base64)  # Pass base64 string
+                                   image_data=img_base64)
 
         except Exception as e:
             flash(f'Error generating image: {str(e)}')
