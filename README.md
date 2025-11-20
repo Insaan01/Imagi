@@ -1,4 +1,6 @@
-**Imagi – AI Text-to-Image Generator**
+---
+
+# **Imagi – AI Text-to-Image Generator**
 
 ## **🧠 What is Imagi?**
 
